@@ -4,8 +4,7 @@ import numpy as np
 CITY_DATA = {'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv'}
-              def check_input(input_str,input_type):
-              
+def check_input(input_str,input_type):
  while True:
      input_read=input(input_str)
      try: 
