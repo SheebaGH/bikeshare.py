@@ -8,11 +8,11 @@ def check_input(input_str,input_type):
  while True:
      input_read=input(input_str)
      try: 
-       if input_read in ['chicago','new york city','washington'] and input_type == 1:.lower()
+       if input_read in ['chicago','new york city','washington'].lower() and input_type == 1:
             break
-       elif input_read in ['january', 'february', 'march', 'april', 'may', 'june','all'] and input_type == 2:.lower()
+       elif input_read in ['january', 'february', 'march', 'april', 'may', 'june','all'].lower() and input_type == 2:
             break
-       elif input_read in ['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all'] and input_type == 3:.lower()
+       elif input_read in ['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all'].lower() and input_type == 3:
             break
        else:
          if input_type == 1:
