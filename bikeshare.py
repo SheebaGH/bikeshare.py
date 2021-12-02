@@ -10,7 +10,7 @@ def check_input(input_str,input_type):
      try: 
        if input_read in ['chicago','new york city','washington'].lower() and input_type == 1:
             break
-       elif input_read in ['january', 'february', 'march', 'april', 'may', 'june','all'].lower() and input_type == 2:
+       elif input_read in ['january','february','march','april','may','june','all'].lower() and input_type == 2:
             break
        elif input_read in ['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all'].lower() and input_type == 3:
             break
