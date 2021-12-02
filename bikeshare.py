@@ -25,34 +25,36 @@ def check_input(input_str,input_type):
          print("Sorry, your input is wrong")
  return input_read
  
- def get_filters():
+def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
-city = check_input("Would you like to see the data for chicago, new york city or washington?",1).lower()
-month = check_input("Which Month (all, january, ... june)?", 2).lower()
-day = check_input("Which day? (all, monday, tuesday, ... sunday)", 3).lower()
-print('-'*40)
-return city, month, day
+    city = check_input("Would you like to see the data for chicago, new york city or washington?",1).lower()
+    month = check_input("Which Month (all, january, ... june)?", 2).lower()
+    day = check_input("Which day? (all, monday, tuesday, ... sunday)", 3).lower()
+    print('-'*40)
+    return city, month, day
 
 raw = {'chicago': 'chicago.csv','new york city': 'new_york_city.csv', 'washington': 'washington.csv'}
 def get_from_files(city, month, day):
     df = pd.read_csv(raw[city])
     
-    def load_data(city, month, day):
+def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
+
     df['Start Time'] = pd.to_datetime(df['Start Time'])
+	
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
     if month != 'all':
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1
-        df = df[df['month'] == month]
-        if day != 'all':
+    months = ['january', 'february', 'march', 'april', 'may', 'june']
+    month = months.index(month) + 1
+    df = df[df['month'] == month]
+    if day != 'all':
             df = df[df['day_of_week'] == day.title()]
 
     return df
     
-    def time_stats(df):
+def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
     
@@ -69,8 +71,8 @@ def get_from_files(city, month, day):
     print('-'*40)
     print('Most Common Start Hour:',  most_common_start_hour)
     
-    def station_stats(df):
-     print('\nCalculating The Most Popular Stations and Trip...\n')
+def station_stats(df):
+    print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
   
     popular_start_station = df['Start Station'].mode()[0]
@@ -86,7 +88,7 @@ def get_from_files(city, month, day):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
-    def trip_duration_stats(df):
+def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
