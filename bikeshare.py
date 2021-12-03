@@ -8,11 +8,11 @@ def check_input(input_str,input_type):
  while True:
      input_read=input(input_str)
      try: 
-       if input_read in ['chicago','new york city','washington'].lower() and input_type == 1:
+       if input_read.lower() in ['chicago','new york city','washington'] and input_type == 1:
             break
-       elif input_read in ['january','february','march','april','may','june','all'].lower() and input_type == 2:
+       elif input_read.lower() in ['january','february','march','april','may','june','all'] and input_type == 2:
             break
-       elif input_read in ['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all'].lower() and input_type == 3:
+       elif input_read.lower() in ['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all'] and input_type == 3:
             break
        else:
          if input_type == 1:
@@ -27,13 +27,13 @@ def check_input(input_str,input_type):
  
 def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
-    city = check_input("Would you like to see the data for chicago, new york city or washington?",1).lower()
-    month = check_input("Which Month (all, january, ... june)?", 2).lower()
-    day = check_input("Which day? (all, monday, tuesday, ... sunday)", 3).lower()
+    city = check_input.lower()("Would you like to see the data for chicago, new york city or washington?",1)
+    month = check_input.lower()("Which Month (all, january, ... june)?", 2)
+    day = check_input.lower()("Which day? (all, monday, tuesday, ... sunday)", 3)
     print('-'*40)
     return city, month, day
 
-raw = {'chicago': 'chicago.csv','new york city': 'new_york_city.csv','washington': 'washington.csv'}
+raw = {'chicago': 'chicago.csv','new york city': 'new_york_city.csv','washington': 'washington.csv'}.lower()
 def get_from_files(city, month, day):
     df = pd.read_csv(raw[city])
     
@@ -42,9 +42,9 @@ def load_data(city, month, day):
     Loads data for the specified city and filters by month and day if applicable.
     
      Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) city - name of the city to analyze .lower()
+	(str) month - name of the month to filter by, or "all" to apply no month filter .lower()
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter .lower()
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
