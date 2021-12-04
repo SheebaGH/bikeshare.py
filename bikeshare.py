@@ -27,13 +27,13 @@ def check_input(input_str,input_type):
  
 def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
-    city = check_input.lower()("Would you like to see the data for chicago, new york city or washington?",1)
-    month = check_input.lower()("Which Month (all, january, ... june)?", 2)
-    day = check_input.lower()("Which day? (all, monday, tuesday, ... sunday)", 3)
+    city = check_input("Would you like to see the data for chicago, new york city or washington?",1)
+    month = check_input("Which Month (all, january, ... june)?", 2)
+    day = check_input("Which day? (all, monday, tuesday, ... sunday)", 3)
     print('-'*40)
     return city, month, day
 
-raw = {'chicago': 'chicago.csv','new york city': 'new_york_city.csv','washington': 'washington.csv'}.lower()
+raw = {'chicago': 'chicago.csv','new york city': 'new_york_city.csv','washington': 'washington.csv'}
 def get_from_files(city, month, day):
     df = pd.read_csv(raw[city])
     
